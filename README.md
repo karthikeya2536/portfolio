@@ -1,20 +1,53 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Karthikeya Yemula - Portfolio 🚀
 
-# Run and deploy your AI Studio app
+Welcome to my personal portfolio functionality-rich, interactive, and modern web application showcasing my journey as an **ML Engineer** and **Full Stack Developer**.
 
-This contains everything you need to run your app locally.
+## 🌟 Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1FbpzzDPSowdeFo1uY_EOGbFW_vhKyrRh
+- **3D Interactive Elements**: Integrated **Spline 3D** scenes for improved visual engagement.
+- **Dynamic Animations**: Powered by **Framer Motion** for smooth transitions and scroll effects.
+- **Responsive Design**: Fully responsive layout optimized for all devices (Mobile to Desktop).
+- **Custom UI Components**: Built with a custom design system including:
+  - **Tubelight Navbar**: A sleek, floating navigation dock.
+  - **Bento Grids**: Modern grid layouts for content.
+  - **3D Cards**: Interactive cards with depth effects.
+- **Project Showcase**: Detailed case studies of my work in AI/ML and Web Development.
 
-## Run Locally
+## 🛠️ Tech Stack
 
-**Prerequisites:**  Node.js
+- **Frontend**: React, TypeScript, Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **3D Graphics**: Spline
+- **Icons**: Lucide React
 
+## 🚀 Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+To run this project locally:
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/karthikeya2536/portfolio.git
+    cd portfolio
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Build for Production**
+    ```bash
+    npm run build
+    ```
+
+## 📬 Contact
+
+Feel free to reach out for collaborations or just to say hi!
+- **LinkedIn**: [Karthikeya Yemula](https://linkedin.com/in/yemulakarthikeya)
+- **Email**: yemulakarthikeya@gmail.com
