@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { PinContainer } from '../components/ui/3d-pin';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -82,24 +83,26 @@ const Projects: React.FC = () => {
             <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}>
               
               {/* Image Section */}
-              <div className="w-full lg:w-1/2 group relative">
-                <div className="absolute inset-0 bg-indigo-500/20 blur-3xl -z-10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-video shadow-2xl">
-                  <img 
-                    src={project.img} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 gray-scale group-hover:grayscale-0" 
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors duration-500" />
-                  
-                  {/* Floating Action for Quick Access */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                     <a href={project.live} target="_blank" rel="noreferrer" className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform">
-                        <ArrowUpRight className="w-5 h-5" />
-                     </a>
+              <div className="w-full lg:w-1/2 group relative flex items-center justify-center min-h-[300px]">
+                <PinContainer title={project.title} href={project.live} containerClassName="w-full h-full">
+                  <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[28rem] h-[25rem] ">
+                    <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100 -mt-2">
+                      {project.title}
+                    </h3>
+                    <div className="text-base !m-0 !p-0 font-normal">
+                      <span className="text-slate-500 ">
+                        {project.tagline.slice(0, 50)}...
+                      </span>
+                    </div>
+                    <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 overflow-hidden">
+                       <img 
+                        src={project.img} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover" 
+                      />
+                    </div>
                   </div>
-                </div>
+                </PinContainer>
               </div>
 
               {/* Content Section */}
@@ -136,9 +139,6 @@ const Projects: React.FC = () => {
                 </div>
 
                 <div className="flex gap-4 pt-4">
-                  <a href={project.live} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-neutral-200 transition-colors">
-                     View Project <ArrowUpRight className="w-4 h-4" />
-                  </a>
                   <a href={project.repo} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-colors">
                      <Github className="w-4 h-4" /> Source Code
                   </a>
