@@ -1,17 +1,84 @@
-import React from 'react';
-import { GraduationCap, School, BookOpen, Award, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { GraduationCap, School, BookOpen, Award, ExternalLink, Plus, Minus } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { CardContainer, CardBody, CardItem } from '../components/ui/3d-card';
 
+interface EducationItem {
+  title: string;
+  school: string;
+  year: string;
+  score: string;
+  icon: React.ReactNode;
+  coursework: string[];
+  shadowClass?: string;
+}
+
+const EducationCard: React.FC<{ item: EducationItem }> = ({ item }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const displayedCoursework = isExpanded ? item.coursework : item.coursework.slice(0, 3);
+  const showButton = item.coursework.length > 3;
+
+  return (
+    <div className="h-full w-full">
+      <CardContainer className="inter-var w-full h-full" containerClassName="h-full py-2">
+        <CardBody className={`bg-neutral-900/50 relative group/card border-white/10 w-full h-full flex flex-col rounded-xl p-6 border transition-all duration-300 hover:shadow-2xl ${item.shadowClass}`}>
+          <CardItem translateZ="50" className="w-full flex justify-between items-start mb-4">
+             <div className="w-16 h-16 bg-neutral-800 rounded-2xl flex items-center justify-center shadow-lg">
+               {item.icon}
+             </div>
+             <div className="flex flex-col items-end">
+                <span className="text-xs font-mono text-neutral-500 bg-neutral-800/50 px-2 py-1 rounded border border-white/5">{item.year}</span>
+                <span className="text-xs font-bold text-indigo-400 mt-1">{item.score}</span>
+             </div>
+          </CardItem>
+          
+          <CardItem translateZ="60" className="text-xl font-bold text-white mb-2">
+            {item.title}
+          </CardItem>
+          
+          <CardItem translateZ="50" className="text-sm text-indigo-300 font-medium mb-6">
+            {item.school}
+          </CardItem>
+
+          <CardItem translateZ="40" className="w-full">
+              <h4 className="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <BookOpen className="w-3 h-3" /> Coursework
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                  {displayedCoursework.map((c, i) => (
+                      <span key={i} className="text-[10px] text-neutral-400 bg-white/5 px-2 py-1 rounded border border-white/5">
+                          {c}
+                      </span>
+                  ))}
+                  {showButton && (
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent card hover/click issues if any
+                        setIsExpanded(!isExpanded);
+                      }}
+                      className="text-[10px] text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors flex items-center gap-1 cursor-pointer"
+                    >
+                      {isExpanded ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
+                    </button>
+                  )}
+              </div>
+          </CardItem>
+        </CardBody>
+      </CardContainer>
+    </div>
+  );
+};
+
 const Education: React.FC = () => {
-  const education = [
+  const education: EducationItem[] = [
     {
       title: "B.Tech in AI & ML",
       school: "St. Martins Engineering College",
       year: "2022 – 2026",
       score: "CGPA: 7.98",
       icon: <GraduationCap className="h-8 w-8 text-indigo-400" />,
-      coursework: ["Artificial Intelligence", "Operating Systems", "DBMS", "Computer Networks", "Probability & Statistics", "Deep Learning", "Machine Learning", "Data Science"]
+      coursework: ["Artificial Intelligence", "Operating Systems", "DBMS", "Computer Networks", "Probability & Statistics", "Deep Learning", "Machine Learning", "Data Science"],
+      shadowClass: "hover:shadow-indigo-500/20"
     },
     {
       title: "Intermediate",
@@ -19,7 +86,8 @@ const Education: React.FC = () => {
       year: "2020 – 2022",
       score: "91.8%",
       icon: <School className="h-8 w-8 text-purple-400" />,
-      coursework: ["Mathematics", "Physics", "Chemistry"]
+      coursework: ["Mathematics", "Physics", "Chemistry"],
+      shadowClass: "hover:shadow-purple-500/20"
     },
     {
       title: "SSC (10th Class)",
@@ -27,7 +95,8 @@ const Education: React.FC = () => {
       year: "2019 – 2020",
       score: "GPA: 10.0",
       icon: <BookOpen className="h-8 w-8 text-pink-400" />,
-      coursework: ["Mathematics", "Science", "Social Studies", "English", "Hindi", "Telugu"]
+      coursework: ["Mathematics", "Science", "Social Studies", "English", "Hindi", "Telugu"],
+      shadowClass: "hover:shadow-pink-500/20"
     }
   ];
 
@@ -67,42 +136,7 @@ const Education: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {education.map((item, index) => (
-            <div key={index} className="h-full w-full">
-              <CardContainer className="inter-var w-full h-full">
-                <CardBody className="bg-neutral-900/50 relative group/card border-white/10 w-full h-auto rounded-xl p-6 border transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/20">
-                  <CardItem translateZ="50" className="w-full flex justify-between items-start mb-4">
-                     <div className="w-16 h-16 bg-neutral-800 rounded-2xl flex items-center justify-center shadow-lg">
-                       {item.icon}
-                     </div>
-                     <div className="flex flex-col items-end">
-                        <span className="text-xs font-mono text-neutral-500 bg-neutral-800/50 px-2 py-1 rounded border border-white/5">{item.year}</span>
-                        <span className="text-xs font-bold text-indigo-400 mt-1">{item.score}</span>
-                     </div>
-                  </CardItem>
-                  
-                  <CardItem translateZ="60" className="text-xl font-bold text-white mb-2">
-                    {item.title}
-                  </CardItem>
-                  
-                  <CardItem translateZ="50" className="text-sm text-indigo-300 font-medium mb-6">
-                    {item.school}
-                  </CardItem>
-
-                  <CardItem translateZ="40" className="w-full">
-                      <h4 className="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-3 flex items-center gap-2">
-                          <BookOpen className="w-3 h-3" /> Coursework
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                          {item.coursework.map((c, i) => (
-                              <span key={i} className="text-[10px] text-neutral-400 bg-white/5 px-2 py-1 rounded border border-white/5">
-                                  {c}
-                              </span>
-                          ))}
-                      </div>
-                  </CardItem>
-                </CardBody>
-              </CardContainer>
-            </div>
+            <EducationCard key={index} item={item} />
           ))}
         </div>
 
