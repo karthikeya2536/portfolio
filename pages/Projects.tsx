@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
       solution: "Fine-tuned a Llama 2 model to analyze Python function signatures and bodies, generating standards-compliant docstrings automatically.",
       impact: "Improved developer productivity and codebase maintainability.",
       img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=800&auto=format&fit=crop",
-      live: "#", 
+      live: "https://github.com/karthikeya2536/CODE_COMMENT_GENERATOR", 
       repo: "https://github.com/karthikeya2536/CODE_COMMENT_GENERATOR"
     },
     {
