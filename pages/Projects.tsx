@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
       solution: "Engineered a Heterogeneous Neural Network (HNN) treating users, songs, and artists as distinct nodes in a unified graph to predict affinity scores.",
       impact: "Higher relevance for sparse datasets compared to baseline matrix factorization.",
       img: "https://images.unsplash.com/photo-1614149162883-504ce4d13909?q=80&w=800&auto=format&fit=crop",
-      live: "https://music-recommendation-system-sigma.vercel.app",
+      live: "https://karthikeya2536.github.io/Music-Recommendation-System/",
       repo: "https://github.com/karthikeya2536/Music-Recommendation-System"
     },
     {
