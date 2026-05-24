@@ -6,6 +6,17 @@ import { CardContainer, CardBody, CardItem } from '../components/ui/3d-card';
 const Projects: React.FC = () => {
   const projects = [
     {
+      title: "EduPredict",
+      tagline: "A student performance intelligence platform with live analytics and ML-powered score prediction.",
+      tech: ["Django", "DRF", "Next.js", "TypeScript", "scikit-learn"],
+      challenge: "Unifying student data, file uploads, and score prediction into a secure workflow that stays usable for school staff in real time.",
+      solution: "Built a Django REST backend with automated retraining, bulk CSV/XLSX ingestion, and a Next.js dashboard for live student tracking and analytics.",
+      impact: "Delivered a production-oriented school analytics platform with health checks, summary insights, and prediction-driven student management.",
+      img: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?q=80&w=800&auto=format&fit=crop",
+      live: "https://frontend-virid-pi-53.vercel.app/",
+      repo: "https://github.com/karthikeya2536/student-performance-analysis"
+    },
+    {
       title: "Music Recommendation System",
       tagline: "Graph Neural Networks tailored for personalized audio discovery.",
       tech: ["PyTorch", "GNN", "Docker", "Python", "React"],
@@ -35,7 +46,7 @@ const Projects: React.FC = () => {
       solution: "Fine-tuned a Llama 2 model to analyze Python function signatures and bodies, generating standards-compliant docstrings automatically.",
       impact: "Improved developer productivity and codebase maintainability.",
       img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=800&auto=format&fit=crop",
-      live: "#", 
+      live: "https://github.com/karthikeya2536/CODE_COMMENT_GENERATOR", 
       repo: "https://github.com/karthikeya2536/CODE_COMMENT_GENERATOR"
     },
     {
@@ -87,48 +98,40 @@ const Projects: React.FC = () => {
                 <CardContainer className="inter-var w-full h-full">
                   <CardBody className="relative group/card w-full h-auto rounded-xl p-6 border border-white/[0.1] bg-black/50 hover:shadow-2xl hover:shadow-emerald-500/[0.1] transition-all duration-300">
                     
-                    <CardItem
-                      translateZ="50"
-                      className="text-xl font-bold text-neutral-600 dark:text-white"
-                    >
-                      {project.title}
-                    </CardItem>
-                    
-                    <CardItem
-                      as="p"
-                      translateZ="60"
-                      className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-                    >
-                      {project.tagline}
-                    </CardItem>
-                    
-                    <CardItem translateZ="100" className="w-full mt-4 relative">
-                      <img
-                        src={project.img}
-                        height="1000"
-                        width="1000"
-                        className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                        alt={project.title}
-                      />
+                    <a href={project.live} target="_blank" rel="noreferrer" className="block cursor-pointer">
+                      <CardItem
+                        translateZ="50"
+                        className="text-xl font-bold text-neutral-600 dark:text-white"
+                      >
+                        {project.title}
+                      </CardItem>
                       
-                       {/* Permanent Badge - Fades out on hover */}
-                      <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/20 rounded-full opacity-100 group-hover/card:opacity-0 transition-opacity duration-300 flex items-center gap-2 z-10">
-                        <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </span>
-                        <span className="text-xs font-mono text-white font-medium">View Live</span>
-                      </div>
-
-                      {/* Crazy Hover Text */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 bg-black/40 rounded-xl">
-                         <CardItem translateZ="150">
-                           <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-pulse tracking-widest uppercase transform rotate-[-10deg] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] border-4 border-white/20 p-4 rounded-xl backdrop-blur-sm">
-                            Click to Visit!
+                      <CardItem
+                        as="p"
+                        translateZ="60"
+                        className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                      >
+                        {project.tagline}
+                      </CardItem>
+                      
+                      <CardItem translateZ="100" className="w-full mt-4 relative">
+                        <img
+                          src={project.img}
+                          height="1000"
+                          width="1000"
+                          className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                          alt={project.title}
+                        />
+                        
+                        <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/20 rounded-full flex items-center gap-2 z-10">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                           </span>
-                         </CardItem>
-                      </div>
-                    </CardItem>
+                          <span className="text-xs font-mono text-white font-medium">View Live</span>
+                        </div>
+                      </CardItem>
+                    </a>
 
                     <div className="flex justify-between items-center mt-20">
                       <CardItem
