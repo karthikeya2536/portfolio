@@ -40,7 +40,7 @@ export function NavBar({ items, className, children }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6 w-fit pointer-events-none",
+        "fixed bottom-0 sm:top-0 left-0 right-0 mx-auto z-50 mb-6 sm:pt-6 w-fit pointer-events-none",
         className,
       )}
     >

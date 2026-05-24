@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <NavBar items={navItems} className="top-5">
+    <NavBar items={navItems} className="sm:top-5">
       <div className="hidden md:flex items-center gap-8 pl-12 border-l border-white/10">
           {/* Resume */}
           <a href={Resume} download="Karthikeya_Yemula_Resume" className="text-neutral-400 hover:text-white transition-colors" title="Download Resume">

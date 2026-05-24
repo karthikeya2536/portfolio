@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { PinContainer } from '../components/ui/3d-pin';
+import { CardContainer, CardBody, CardItem } from '../components/ui/3d-card';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -84,29 +84,78 @@ const Projects: React.FC = () => {
               
               {/* Image Section */}
               <div className="w-full lg:w-1/2 group relative flex items-center justify-center min-h-[300px]">
-                <PinContainer title={project.title} href={project.live} containerClassName="w-full h-full">
-                  <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[28rem] h-[25rem] ">
-                    <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100 -mt-2">
+                <CardContainer className="inter-var w-full h-full">
+                  <CardBody className="relative group/card w-full h-auto rounded-xl p-6 border border-white/[0.1] bg-black/50 hover:shadow-2xl hover:shadow-emerald-500/[0.1] transition-all duration-300">
+                    
+                    <CardItem
+                      translateZ="50"
+                      className="text-xl font-bold text-neutral-600 dark:text-white"
+                    >
                       {project.title}
-                    </h3>
-                    <div className="text-base !m-0 !p-0 font-normal">
-                      <span className="text-slate-500 ">
-                        {project.tagline.slice(0, 50)}...
-                      </span>
-                    </div>
-                    <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 overflow-hidden">
-                       <img 
-                        src={project.img} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover" 
+                    </CardItem>
+                    
+                    <CardItem
+                      as="p"
+                      translateZ="60"
+                      className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                    >
+                      {project.tagline}
+                    </CardItem>
+                    
+                    <CardItem translateZ="100" className="w-full mt-4 relative">
+                      <img
+                        src={project.img}
+                        height="1000"
+                        width="1000"
+                        className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                        alt={project.title}
                       />
+                      
+                       {/* Permanent Badge - Fades out on hover */}
+                      <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/20 rounded-full opacity-100 group-hover/card:opacity-0 transition-opacity duration-300 flex items-center gap-2 z-10">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        <span className="text-xs font-mono text-white font-medium">View Live</span>
+                      </div>
+
+                      {/* Crazy Hover Text */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 bg-black/40 rounded-xl">
+                         <CardItem translateZ="150">
+                           <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 animate-pulse tracking-widest uppercase transform rotate-[-10deg] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] border-4 border-white/20 p-4 rounded-xl backdrop-blur-sm">
+                            Click to Visit!
+                          </span>
+                         </CardItem>
+                      </div>
+                    </CardItem>
+
+                    <div className="flex justify-between items-center mt-20">
+                      <CardItem
+                        translateZ={20}
+                        as="a"
+                        href={project.live}
+                        target="__blank"
+                        className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                      >
+                        Visit →
+                      </CardItem>
+                      <CardItem
+                        translateZ={20}
+                        as="a"
+                        href={project.repo}
+                        target="__blank"
+                        className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                      >
+                        GitHub
+                      </CardItem>
                     </div>
-                  </div>
-                </PinContainer>
+                  </CardBody>
+                </CardContainer>
               </div>
 
-              {/* Content Section */}
-              <div className="w-full lg:w-1/2 space-y-8">
+              {/* Content Section (Kept as is for context, could also be 3D-ified) */}
+              <div className="w-full lg:w-1/2 space-y-8 pl-0 lg:pl-10">
                 <div>
                    <h2 className="text-4xl font-bold text-white mb-3">{project.title}</h2>
                    <p className="text-xl text-indigo-400 font-medium leading-relaxed">{project.tagline}</p>
@@ -136,12 +185,6 @@ const Projects: React.FC = () => {
                        </span>
                      ))}
                    </div>
-                </div>
-
-                <div className="flex gap-4 pt-4">
-                  <a href={project.repo} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-colors">
-                     <Github className="w-4 h-4" /> Source Code
-                  </a>
                 </div>
               </div>
 

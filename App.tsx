@@ -25,6 +25,9 @@ const AnimatedRoutes: React.FC = () => {
   );
 };
 
+
+
+
 const App: React.FC = () => {
   return (
     <Router>
