@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import { Home, User, Briefcase, Cpu, GraduationCap, Github, Linkedin, Mail, Code2, Terminal, BarChart2, MessageCircle, Download } from 'lucide-react';
-import Resume from '../karthik_resume_AI_ML.pdf'; 
+import Resume from '../karthik_resume (5).pdf'; 
 
 const Navbar: React.FC = () => {
   const navItems = [
